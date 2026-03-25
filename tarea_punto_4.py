@@ -20,8 +20,8 @@ prob += X1 + X2 + X3 == 1, "Suma_fracciones"
 # Restricción de riesgo
 prob += 0.10 * X1 + 0.05 * X2 + 0.01 * X3 <= 0.05, "Indice_Riesgo"
 
-# Resolver el problema
-prob.solve()
+# Resolver el problema sin mostrar la salida del solver
+prob.solve(pulp.PULP_CBC_CMD(msg=False))
 
 # Mostrar resultados
 print("Estado:", pulp.LpStatus[prob.status])
@@ -29,5 +29,7 @@ print(f"Mejor mezcla de inversiones para Liliana Duque:")
 print(f"  Fondo de Crecimiento (X1): {X1.varValue:.4f} ({X1.varValue*300000:.2f} USD)")
 print(f"  Fondo de Ingresos (X2):    {X2.varValue:.4f} ({X2.varValue*300000:.2f} USD)")
 print(f"  Fondo de Mercado Dinero (X3): {X3.varValue:.4f} ({X3.varValue*300000:.2f} USD)")
-print(f"Rendimiento esperado: {pulp.value(prob.objective)*300000:.2f} USD anuales")
+rendimiento_esperado = pulp.value(prob.objective)
+print(f"Rendimiento esperado: {rendimiento_esperado*300000:.2f} USD anuales")
+print(f"Rendimiento esperado: {rendimiento_esperado*100:.2f}% anual sobre el portafolio")
 print(f"Índice de riesgo del portafolio: {0.10*X1.varValue + 0.05*X2.varValue + 0.01*X3.varValue:.4f}")
