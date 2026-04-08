@@ -1,0 +1,8 @@
+En caso de necesitar reinstalar los paquetes seguir estos 2 pasos, si no le da
+preguntele al Tio TiTo (chat gpt)
+
+1. Activar entorno virtual
+    .\venv\Scripts\Activate.ps1
+
+2. Instalar requerimientos
+    pip install -r requirements.txt
