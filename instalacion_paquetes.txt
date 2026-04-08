@@ -6,3 +6,12 @@ preguntele al Tio TiTo (chat gpt)
 
 2. Instalar requerimientos
     pip install -r requirements.txt
+
+
+Para ejecutar los archivos en este pc ES OBLIGATORIO COPIAR Y PEGAR cada uno
+de los comandos en la terminal
+
+    python tarea_punto_1.py
+    python tarea_punto_2.py
+    python tarea_punto_3.py
+    python tarea_punto_4.py
